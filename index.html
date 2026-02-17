@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List Project</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>To-Do List</h1>
+        <p>Plan your day and keep track of completed tasks.</p>
+      </header>
+
+      <form id="todo-form" class="todo-form" aria-label="Add a to-do item">
+        <label for="todo-input" class="sr-only">New task</label>
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="Add a task..."
+          autocomplete="off"
+          maxlength="120"
+          required
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <section class="controls" aria-label="Task controls">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" data-filter="all" class="filter-btn active">All</button>
+          <button type="button" data-filter="active" class="filter-btn">Active</button>
+          <button type="button" data-filter="completed" class="filter-btn">Completed</button>
+        </div>
+        <button id="clear-completed" type="button" class="clear-btn">Clear completed</button>
+      </section>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <footer class="footer">
+        <span id="items-left">0 items left</span>
+      </footer>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label class="todo-main">
+          <input type="checkbox" class="todo-toggle" />
+          <span class="todo-text"></span>
+        </label>
+        <div class="todo-actions">
+          <button type="button" class="edit-btn" aria-label="Edit task">Edit</button>
+          <button type="button" class="delete-btn" aria-label="Delete task">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
